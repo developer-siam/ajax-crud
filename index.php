@@ -17,8 +17,11 @@
 			<div class="modal-content">
 				<div class="modal-body">
 					<h2>Add new student</h2>
+					<div class="mess">
+						
+					</div>
 					<hr>
-					<form action="">
+					<form id="student_add_form" action="" method="POST" enctype="multipart/form-data">
 						<div class="form-group">
 							<label for="">Name</label>
 							<input class="form-control" name="name" type="text">
@@ -95,6 +98,9 @@
 		<div class="card shadow">
 			<div class="card-body">
 				<h2>All Students</h2>
+				<div class="message">
+					
+				</div>
 				<table class="table table-striped">
 					<thead>
 						<tr>
