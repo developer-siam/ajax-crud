@@ -3,15 +3,16 @@
 
 		// Show student_add_modal 
 		$('a#student_show').click(function(){
-			$('#student_add_modal').modal('show');
+			$('div#student_add_modal').modal('show');
 
 			return false;
 		});
 
 		// Show single student modal 
-		$('a#single_show').click(function(){
-			$('#single_student_modal').modal('show');
+		$(document).on('click','a#single_show',function(){
+			$('div#single_student_modal').modal('show');
 
+			//not to appear a '#' on the url when press the view button
 			return false;
 		});
 
@@ -74,7 +75,34 @@
 			}
 		});
 		}
+		
 		showAllStudent();
+
+		/**
+		 * delete student
+		 */
+		 $(document).on('click','a#delete_student',function(){
+		 	//get delete_id from delete_id attribute
+		 	let delete_id = $(this).attr('delete_id');
+		 	//ask for a confirmation 
+		 	let conf = confirm("Are you sure?");
+		 	if (conf == true) {
+		 		$.ajax({
+		 			url : 'inc/ajax/delete_student.php',
+		 			data : {id : delete_id},
+		 			method : 'POST',
+		 			success : function(data){
+		 				$('.message').html(data);
+		 				showAllStudent();
+		 			}
+
+
+		 		});
+		 	}else{
+		 		return false;
+		 	}
+		 	return false;
+		 });
 
 
 
