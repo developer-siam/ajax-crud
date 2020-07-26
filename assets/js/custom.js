@@ -12,6 +12,25 @@
 		$(document).on('click','a#single_show',function(){
 			$('div#single_student_modal').modal('show');
 
+			//get view_id from view_id attribute
+		 	let view_id = $(this).attr('view_id');
+		 	
+
+			//ajax request
+			$.ajax({
+				url : "inc/ajax/single_student.php",
+				data : {id : view_id},
+		 		method : 'POST',
+		 		success : function(data){
+		 			let single_std_data=JSON.parse(data);
+		 			$('img#std_image').attr('src','img/students/'+single_std_data.photo);
+		 			$('h2#std_name').html(single_std_data.name);
+		 			$('td#std_name').html(single_std_data.name);
+		 			$('td#std_email').html(single_std_data.email);
+		 			$('td#std_cell').html(single_std_data.cell);
+		 	}
+			});
+
 			//not to appear a '#' on the url when press the view button
 			return false;
 		});
@@ -98,10 +117,10 @@
 
 
 		 		});
-		 	}else{
-		 		return false;
 		 	}
-		 	return false;
+
+		 	//not to appear a '#' on the url 
+			return false;
 		 });
 
 

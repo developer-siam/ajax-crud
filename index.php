@@ -63,29 +63,24 @@
 					<h2>Single Student Data</h2>
 					<hr>
 					
-					<img class="shadow" style="width: 200px; height:200px; display: block;margin: auto; border-radius: 50%; border: 10px solid #FFF;" src="assets/media/img/pp_photo/IMG_9911_copy.307195445_std.jpg" alt="">
-					<h2 class="text-center">Asraful Haque</h2>
+					<img id="std_image" class="shadow" style="width: 200px; height:200px; display: block;margin: auto; border-radius: 50%; border: 10px solid #FFF;" src="" alt="">
+					<h2 id="std_name" class="text-center">Asraful Haque</h2>
 
-					<table class="table table-striped">
+					<table  class="table table-striped">
 						<tr>
 							<td>Name :</td>
-							<td>Asraful Haque</td>
+							<td id="std_name"></td>
 						</tr>
 
 						<tr>
-							<td>Name :</td>
-							<td>Asraful Haque</td>
+							<td>email :</td>
+							<td id="std_email"></td>
 						</tr>
 
 						<tr>
-							<td>Name :</td>
-							<td>Asraful Haque</td>
-						</tr>
-
-						<tr>
-							<td>Name :</td>
-							<td>Asraful Haque</td>
-						</tr>
+							<td>cell :</td>
+							<td id="std_cell"></td>
+						</tr>				
 					</table>
 
 				</div>
