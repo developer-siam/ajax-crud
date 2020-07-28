@@ -21,7 +21,7 @@
 	<td><img src="img/students/<?php echo $fdata['photo']; ?>" alt=""></td>
 	<td>
 		<a id="single_show" view_id="<?php echo $fdata['id']; ?>" class="btn btn-sm btn-info" href="#">View</a>
-		<a class="btn btn-sm btn-warning" href="#">Edit</a>
+		<a id="edit_student" update_id="<?php echo $fdata['id']; ?>" class="btn btn-sm btn-warning" href="#">Edit</a>
 		<a id="delete_student" delete_id="<?php echo $fdata['id']; ?>" class="btn btn-sm btn-danger" href="#">Delete</a>
 	</td>
 </tr>

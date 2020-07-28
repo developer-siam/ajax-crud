@@ -119,10 +119,42 @@
 		 		});
 		 	}
 
-		 	//not to appear a '#' on the url 
+		 	//not to appear '#' on the url 
 			return false;
 		 });
 
+
+		 /**
+		  * Update student information
+		  */
+		 $(document).on('click','a#edit_student',function(e){
+		 	// not to generate '#' in the url
+		 	e.preventDefault();
+		 	//show student update modal
+		 	$('div#student_update_modal').modal('show');
+		 	//get update id
+		 	let update_id = $(this).attr('update_id');
+		 	
+		 	
+		 	$.ajax({
+		 		url : 'inc/ajax/update_student.php',
+		 		data : {id : update_id},
+		 		method : 'POST',
+		 		success : function(data){
+		 			let std_data =JSON.parse(data);
+		 			$('#student_update_modal input[name="name"]').val(std_data.name);
+		 			$('#student_update_modal input[name="email"]').val(std_data.email);
+		 			$('#student_update_modal input[name="cell"]').val(std_data.cell);
+		 			$('#student_update_modal img').attr('src','img/students/'+std_data.photo);
+		 			
+		 			
+
+		 		}
+		 	});
+
+
+
+		 });
 
 
 
