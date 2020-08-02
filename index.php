@@ -62,10 +62,11 @@
 						
 					</div>
 					<hr>
-					<form id="student_add_form" action="" method="POST" enctype="multipart/form-data">
+					<form id="student_update_form" action="" method="POST" enctype="multipart/form-data">
 						<div class="form-group">
 							<label for="">Name</label>
 							<input class="form-control" name="name" type="text">
+							<input type="hidden" name="id">
 						</div>
 
 						<div class="form-group">
@@ -79,15 +80,16 @@
 						</div>
 						<div class="form-group">
 							<img src="" style="width: 200px; height:200px; display: block;margin: auto; border-radius: 50%; border: 10px solid #FFF;">
+							<input type="hidden" name="old_photo">
 						</div>
 
 						<div class="form-group">
 							<label for="">Photo</label>
-							<input class="form-control" name="photo" type="file">
+							<input class="form-control" name="new_photo" type="file">
 						</div>
 
 						<div class="form-group">
-							<input class="btn btn-primary" name="update" type="submit" value="Update">
+							<input class="btn btn-primary" name="add" type="submit" value="Update">
 						</div>
 					</form>
 				</div>

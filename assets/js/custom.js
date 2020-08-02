@@ -45,7 +45,7 @@
 			let cell = $('input[name="cell"]').val();			
 			
 			//file value
-			let photo = $('input[name="email"]').val();
+			let photo = $('input[name="photo"]').val();
 
 			//form validation
 			if (name=='' || email=='' || cell=='') {
@@ -125,7 +125,7 @@
 
 
 		 /**
-		  * Update student information
+		  * student information putting on student update form
 		  */
 		 $(document).on('click','a#edit_student',function(e){
 		 	// not to generate '#' in the url
@@ -137,7 +137,7 @@
 		 	
 		 	
 		 	$.ajax({
-		 		url : 'inc/ajax/update_student.php',
+		 		url : 'inc/ajax/student_update_modal.php',
 		 		data : {id : update_id},
 		 		method : 'POST',
 		 		success : function(data){
@@ -146,16 +146,36 @@
 		 			$('#student_update_modal input[name="email"]').val(std_data.email);
 		 			$('#student_update_modal input[name="cell"]').val(std_data.cell);
 		 			$('#student_update_modal img').attr('src','img/students/'+std_data.photo);
-		 			
-		 			
-
+		 			$('#student_update_modal input[name="old_photo"]').val(std_data.photo);	
+		 			$('#student_update_modal input[name="id"]').val(std_data.id);		 					 			
 		 		}
 		 	});
-
-
-
 		 });
 
+
+		 /**
+		 * student Update and show
+		 */
+		$('form#student_update_form').submit(function(e){
+			e.preventDefault();
+
+			
+			//ajax request
+			$.ajax({
+				url : "inc/ajax/update_student.php",
+				data : new FormData(this),
+				processData:false,
+				contentType:false,
+				method:'POST',
+				success: function(data){
+					$('form#student_add_form')[0].reset();
+					$('div#student_update_modal').modal('hide');
+					$('div.message').html(data);
+					showAllStudent();
+				}
+			});
+
+		});
 
 
 
